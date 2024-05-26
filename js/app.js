@@ -1,28 +1,4 @@
-let dataSidang = {
-  namaDosen: 'Dosen',
-  statusDosen: 'pembimbing',
-  jenis: 'proposal',
-  timMhs: 1,
-  tanggal: new Date().toISOString().split('T')[0],
-  createdAt: new Date().toISOString(),
-};
-
 document.addEventListener('DOMContentLoaded', function() {
-
-  // if local storage 'config' doesn't exist
-  if (!localStorage.getItem('config')) {
-    // create local storage 'config' 
-    localStorage.setItem('config', JSON.stringify({tnc: false, active: 0}));
-    // clear local storage 'sidangs'
-    localStorage.removeItem('sidangs');
-    // create local storage 'sidangs'
-    localStorage.setItem('sidangs', JSON.stringify([dataSidang]));
-  }
-
-  // get local storage 'config'
-  let config = JSON.parse(localStorage.getItem('config'));
-  // get local storage 'sidangs'
-  let sidangs = JSON.parse(localStorage.getItem('sidangs'));
 
   // show modal if tnc is false
   if (!config.tnc) {
@@ -32,12 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // set menuNamaDosen innerHTML to namaDosen on active sidang
   document.getElementById('menuNamaDosen').innerHTML = sidangs[config.active].namaDosen;
-  document.getElementById('inputNamaDosen').value = sidangs[config.active].namaDosen;
 
-  // set radio checked
-  document.querySelector('input[name="jenis"][value="'+sidangs[config.active].jenis+'"]').checked = true;
-  document.querySelector('input[name="status"][value="'+sidangs[config.active].statusDosen+'"]').checked = true;
-  document.querySelector('input[name="jumlah"][value="'+sidangs[config.active].timMhs+'"]').checked = true;
+  // get element 'selectSidang'
+  let selectSidang = document.getElementById('selectSidang');
 
   // add event listener to 'tncAgree' button
   document.getElementById('tncAgree').addEventListener('click', function() {
@@ -45,12 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('config', JSON.stringify(config));
   });
 
+  // add event listener to 'tncNotAgree' link
+  document.getElementById('tncNotAgree').addEventListener('click', function() {
+    // clear all local storage before following the link
+    localStorage.clear();
+  });
+
   // add event listener to 'menuHapusData' menu item
   document.getElementById('menuHapusData').addEventListener('click', function() {
     // konfirmasi hapus data
     if (confirm('Bersihkan data sidang pada browser ini?')) {
       localStorage.clear();
-      location.reload();
+      // go to index.html
+      location.href = 'index.html';
     }
   });
 
@@ -66,12 +46,41 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('sidangs', JSON.stringify(sidangs));
       // update local storage 'config'
       localStorage.setItem('config', JSON.stringify(config));
-      // reload page
-      location.reload();
+      // go to index.html
+      location.href = 'index.html';
     }
   });
 
-  console.log(sidangs);
+  // add event listener on dataModal
+  let dataModal = document.getElementById('dataModal')
+  dataModal.addEventListener('show.bs.modal', event => {
+    // show all sidang data as select option on dataModal
+    selectSidang.innerHTML = '';
+    sidangs.forEach((sidang, index) => {
+      let optionSidang = document.createElement('option');
+      let txtSelectSidang = sidang.tanggal + ' - ' + sidang.jenis + ' - ' + sidang.namaMhs;
+      optionSidang.value = index;
+      optionSidang.classList.add('py-2');
+      optionSidang.innerHTML = txtSelectSidang;
+      selectSidang.appendChild(optionSidang);
+    });
+
+    // add event listener to select 'selectSidang'
+    selectSidang.addEventListener('change', function() {
+      // set button 'buttonSetSidang' to enabled
+      document.getElementById('buttonSetSidang').disabled = false;
+    });
+
+    // add event listener to button 'buttonSetSidang'
+    document.getElementById('buttonSetSidang').addEventListener('click', function() {
+      // set active sidang to selected sidang
+      config.active = selectSidang.value;
+      // update local storage 'config'
+      localStorage.setItem('config', JSON.stringify(config));
+      // go to index.html
+      location.href = 'index.html';
+    });
+  })
 
 });
 

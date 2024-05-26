@@ -41,67 +41,7 @@
     <!-- Main Content -->
     <main class="flex-shrink-0 mt-5">
       <div class="container">
-        <div class="card mt-3 text-bg-light">
-          <div class="card-header">
-            <h5 class="card-title">Sidang Baru</h5>
-          </div>
-          <div class="card-body">
-            <form action="forms.html" method="post" id="formSidangBaru">
-              <div class="row mb-3">
-                <div class="col-md-3">
-                  <label for="inputNamaDosen" class="form-label">Nama Dosen</label>
-                </div>
-                <div class="col-md-9">
-                  <input type="text" class="form-control" id="inputNamaDosen" name="nama" placeholder="Tuliskan nama Dosen" required autofocus />
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-md-3">
-                  <label class="form-label">Jenis Sidang</label>
-                </div>
-                <div class="col-md-9">
-                  <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" value="proposal" name="jenis" id="radioProposal" checked />
-                    <label class="btn btn-outline-primary" for="radioProposal">Proposal</label>
-                    <input type="radio" class="btn-check" value="laporan" name="jenis" id="radioLaporan" />
-                    <label class="btn btn-outline-primary" for="radioLaporan">Laporan Akhir</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-md-3">
-                  <label class="form-label">Tim Mahasiswa</label>
-                </div>
-                <div class="col-md-9">
-                  <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" value="1" name="jumlah" id="radioSatu" checked />
-                    <label class="btn btn-outline-primary" for="radioSatu">Perorangan</label>
-                    <input type="radio" class="btn-check" value="2" name="jumlah" id="radioDua" />
-                    <label class="btn btn-outline-primary" for="radioDua">Kelompok</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-md-3">
-                  <label class="form-label">Status Dosen</label>
-                </div>
-                <div class="col-md-9">
-                  <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" value="pembimbing" name="status" id="radioPembimbing" checked />
-                    <label class="btn btn-outline-primary" for="radioPembimbing">Pembimbing</label>
-                    <input type="radio" class="btn-check" value="penguji" name="status" id="radioPenguji" />
-                    <label class="btn btn-outline-primary" for="radioPenguji">Penguji</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="offset-md-3 col-md-9">
-                  <button type="submit" class="btn btn-primary">Tampilkan Form</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <p>...</p>
       </div>
     </main>
 
@@ -197,33 +137,7 @@
       let config = JSON.parse(localStorage.getItem('config'));
       // get local storage 'sidangs'
       let sidangs = JSON.parse(localStorage.getItem('sidangs'));
-      // set menuNamaDosen innerHTML to namaDosen on active sidang
-      document.getElementById('inputNamaDosen').value = sidangs[config.active].namaDosen;
-      // set radio checked
-      document.querySelector('input[name="jenis"][value="'+sidangs[config.active].jenis+'"]').checked = true;
-      document.querySelector('input[name="status"][value="'+sidangs[config.active].statusDosen+'"]').checked = true;
-      document.querySelector('input[name="jumlah"][value="'+sidangs[config.active].timMhs+'"]').checked = true;
 
-      // if formSidangBaru is submitted
-      document.getElementById('formSidangBaru').addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        dataSidang.namaDosen = document.getElementById('inputNamaDosen').value;
-        dataSidang.statusDosen = document.querySelector('input[name="status"]:checked').value;
-        dataSidang.jenis = document.querySelector('input[name="jenis"]:checked').value;
-        dataSidang.timMhs = document.querySelector('input[name="jumlah"]:checked').value;
-        // get current date
-        dataSidang.tanggal = new Date().toISOString().split('T')[0];
-        dataSidang.createdAt = new Date().toISOString();
-
-        // update current active sidang
-        sidangs[config.active] = dataSidang;
-        
-        // update local storage 'sidangs'
-        localStorage.setItem('sidangs', JSON.stringify(sidangs));
-        // redirect to form.html
-        window.location.href = 'forms.html';
-      });
     </script>
     <script src="js/app.js"></script>
   </body>
