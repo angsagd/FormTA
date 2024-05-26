@@ -1,0 +1,36 @@
+
+##config-data
+{
+  'tnc' => false,
+  'active' => 0,  
+}
+
+
+##sidang-data
+
+- id
+- nama_dosen
+- status_dosen [pembimbing/penguji]
+- jenis_sidang [proposal/laporan]
+- tim_mhs [perorangan/kelompok]
+- tanggal
+- nim_mhs_1
+- nama_mhs_1
+- no_tlp_1
+- kepakaran_1
+- nim_mhs_2
+- nama_mhs_2
+- no_tlp_2
+- kepakaran_2
+- judul
+- prodi
+- kaprodi
+- nilai_1
+- nilai_2
+- nilai_3
+- nilai_4
+- status_ba
+- revisi
+- penguji_1
+- penguji_2
+- penguji_3
