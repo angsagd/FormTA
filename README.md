@@ -18,4 +18,7 @@ Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan 
 - Cetak form
 - Penyimpanan data lokal
 
+## Lisensi
+
+Aplikasi ini berlisensi open source. Pengguna bebas untuk menggunakan, memodifikasi, dan mendistribusikan ulang aplikasi ini sesuai dengan ketentuan lisensi open source yang berlaku. Sumber kode aplikasi ini dapat diunduh di GitHub.
 
