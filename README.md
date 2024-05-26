@@ -22,3 +22,6 @@ Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan 
 
 Aplikasi ini berlisensi open source. Pengguna bebas untuk menggunakan, memodifikasi, dan mendistribusikan ulang aplikasi ini sesuai dengan ketentuan lisensi open source yang berlaku.
 
+## Syarat dan Ketentuan
+
+Penggunaan aplikasi ini dilakukan dengan risiko yang ditanggung sendiri oleh pengguna. Pengembang aplikasi tidak bertanggung jawab atas segala kerugian atau masalah yang timbul dari penggunaan aplikasi ini. Pengguna tidak dapat mengaitkan masalah yang terjadi akibat penggunaan aplikasi ini dengan pengembang aplikasi.
