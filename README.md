@@ -14,3 +14,8 @@ Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan 
    - Form Revisi
    - Form Rekapitulasi
    - Form Berita Acara
+- TA perorangan atau berkelompok
+- Cetak form
+- Penyimpanan data lokal
+
+
