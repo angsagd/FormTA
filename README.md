@@ -1,6 +1,6 @@
 # FormTA
 
-Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan sidang tugas akhir. Aplikasi ini bukanlah aplikasi resmi dari ITB STIKOM Bali, namun dapat digunakan oleh dosen atau institusi lain yang merasa aplikasi ini membantu dalam proses penilaian.
+Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan sidang tugas akhir. Aplikasi ini bukanlah aplikasi resmi dari ITB STIKOM Bali, namun dapat digunakan oleh dosen lain yang merasa aplikasi ini membantu dalam proses penilaian.
 
 ## Fitur
 
