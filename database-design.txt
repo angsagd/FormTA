@@ -34,3 +34,31 @@
 - penguji_1
 - penguji_2
 - penguji_3
+
+
+
+
+forms: tab
+- basic info
+   - group 1
+      - nama mahasiswa 1
+      - nim mahasiswa 1
+      - no telepon 1
+   - group 2 [timMhs = 2]
+      - nama mahasiswa 2
+      - nim mahasiswa 2
+      - no telepon 2
+   - judul
+   - tanggal
+   - program studi
+   - kaprodi
+   - penguji 1
+   - penguji 2 [jenis=laporan]
+   - penguji 3 [jenis=laporan], [timMhs=2]
+
+
+- nilai proposal [jenis=proposal]
+- nilai laporan 1 [jenis=laporan]
+- nilai laporan 2 [jenis=laporan], [timMhs=2]
+- revisi
+- berita acara
