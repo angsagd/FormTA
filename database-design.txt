@@ -44,7 +44,7 @@ forms: tab
       - nama mahasiswa 1
       - nim mahasiswa 1
       - no telepon 1
-   - group 2 [timMhs = 2]
+   - group 2                  [timMhs = 2]
       - nama mahasiswa 2
       - nim mahasiswa 2
       - no telepon 2
@@ -62,3 +62,6 @@ forms: tab
 - nilai laporan 2 [jenis=laporan], [timMhs=2]
 - revisi
 - berita acara
+
+show-proposal
+show-laporan

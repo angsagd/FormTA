@@ -1,3 +1,11 @@
+let dataProdi = [
+  {id: 1, nama: 'Sistem Komputer', singkatan: 'SK', kaprodi: 'Made Liandana, S.Kom., M.Eng.'},
+  {id: 3, nama: 'Sistem Informasi', singkatan: 'SI', kaprodi: 'Pande Putu Gede Putra Pertama, S.T., M.T.'},
+  {id: 4, nama: 'Teknologi Informasi', singkatan: 'TI', kaprodi: 'I Wayan Ardiyasa, S.Kom., M.MSI.'},
+  {id: 5, nama: 'Bisnis Digital', singkatan: 'BD', kaprodi: 'Ni Wayan Deriani, S.E., M.Kom.'},
+  {id: 2, nama: 'Manajemen Informatika', singkatan: 'MI', kaprodi: 'I Gusti Ayu Desi Saryanti, S.Kom., M.MSI.'},
+];
+
 let dataSidang = {
   namaDosen: 'Dosen',
   statusDosen: 'pembimbing',
@@ -21,3 +29,9 @@ if (!localStorage.getItem('config')) {
 let config = JSON.parse(localStorage.getItem('config'));
 // get local storage 'sidangs'
 let sidangs = JSON.parse(localStorage.getItem('sidangs'));
+
+function hideComponent(nodes) {
+  Array.from(nodes).forEach(node => {
+    node.classList.add('d-none');
+  });
+}

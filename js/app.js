@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     selectSidang.innerHTML = '';
     sidangs.forEach((sidang, index) => {
       let optionSidang = document.createElement('option');
-      let txtSelectSidang = sidang.tanggal + ' - ' + sidang.jenis + ' - ' + sidang.namaMhs;
+      let txtSelectSidang = sidang.tanggal + ' : ' + sidang.statusDosen + " " + sidang.jenis + ' (' + sidang.timMhs + ' mhsw)';
       optionSidang.value = index;
       optionSidang.classList.add('py-2');
       optionSidang.innerHTML = txtSelectSidang;
