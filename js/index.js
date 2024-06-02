@@ -10,16 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('formSidangBaru').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    dataSidang.namaDosen = document.getElementById('inputNamaDosen').value;
-    dataSidang.statusDosen = document.querySelector('input[name="status"]:checked').value;
-    dataSidang.jenis = document.querySelector('input[name="jenis"]:checked').value;
-    dataSidang.timMhs = document.querySelector('input[name="jumlah"]:checked').value;
-    // get current date
-    dataSidang.tanggal = new Date().toISOString().split('T')[0];
-    dataSidang.createdAt = new Date().toISOString();
+    let sidang = sidangs[config.active];
+
+    sidang.namaDosen = document.getElementById('inputNamaDosen').value;
+    sidang.statusDosen = document.querySelector('input[name="status"]:checked').value;
+    sidang.jenis = document.querySelector('input[name="jenis"]:checked').value;
+    sidang.timMhs = document.querySelector('input[name="jumlah"]:checked').value;
 
     // update current active sidang
-    sidangs[config.active] = dataSidang;
+    sidangs[config.active] = sidang;
     
     // update local storage 'sidangs'
     localStorage.setItem('sidangs', JSON.stringify(sidangs));

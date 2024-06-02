@@ -6,7 +6,7 @@ let dataProdi = [
   {id: 2, nama: 'Manajemen Informatika', singkatan: 'MI', kaprodi: 'I Gusti Ayu Desi Saryanti, S.Kom., M.MSI.'},
 ];
 
-let dataSidang = {
+let newSidang = {
   namaDosen: 'Dosen',
   statusDosen: 'pembimbing',
   jenis: 'proposal',
@@ -20,7 +20,7 @@ if (!localStorage.getItem('config')) {
   // clear local storage 'sidangs'
   localStorage.removeItem('sidangs');
   // create local storage 'sidangs'
-  localStorage.setItem('sidangs', JSON.stringify([dataSidang]));
+  localStorage.setItem('sidangs', JSON.stringify([newSidang]));
   // create local storage 'config' 
   localStorage.setItem('config', JSON.stringify({tnc: false, active: 0}));
 }
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // konfirmasi sidang baru
     if (confirm('Buat data sidang yang baru?')) {
       // create new sidang object with datetime now
-      sidangs.push(dataSidang);
+      sidangs.push(newSidang);
       // set active sidang to the last sidang
       config.active = sidangs.length - 1;
       // update local storage 'sidangs'
