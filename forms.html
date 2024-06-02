@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="icon" href="img/clipboard-data-fill.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="css/forms-min.css">
+    <link rel="stylesheet" href="css/forms-min.css" />
   </head>
   <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
@@ -56,9 +56,10 @@
                 <button class="nav-link active" id="vPillsInfoTab" data-bs-toggle="pill" data-bs-target="#vPillsInfo" type="button" role="tab">Informasi Umum</button>
                 <button class="nav-link" id="vPillsRevisiTab" data-bs-toggle="pill" data-bs-target="#vPillsRevisi" type="button" role="tab">Revisi</button>
                 <button class="nav-link hideif-laporan" id="vPillsNilaiProTab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiPro" type="button" role="tab">Penilaian</button>
-                <button class="nav-link hideif-proposal" id="vPillsNilaiLap1Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap1" type="button" role="tab">Penilaian 1</button>
-                <button class="nav-link hideif-proposal hideif-perorangan" id="vPillsNilaiLap2Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap2" type="button" role="tab">Penilaian 2</button>
-                <button class="nav-link" id="vPillsBeritaTab" data-bs-toggle="pill" data-bs-target="#vPillsBerita" type="button" role="tab">Cetak</button>
+                <button class="nav-link hideif-proposal" id="vPillsNilaiLap1Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap1" type="button" role="tab">Penilaian</button>
+                <button class="nav-link hideif-proposal hideif-perorangan" id="vPillsNilaiLap2Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap2" type="button" role="tab">Penilaian</button>
+                <button class="nav-link hideif-penguji" id="vPillsBeritaTab" data-bs-toggle="pill" data-bs-target="#vPillsBerita" type="button" role="tab">Berita Acara</button>
+                <button class="nav-link" id="vPillsCetakTab" data-bs-toggle="pill" data-bs-target="#vPillsCetak" type="button" role="tab">Cetak</button>
               </div>
               <div class="tab-content flex-fill" id="vPillsTabContent">
                 <!-- Informasi Umum -->
@@ -256,7 +257,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap11" id="nilaiLap11" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap11" id="nilaiLap11" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap11" id="timbangLap11" value="0" step=".01" readonly />
@@ -272,7 +273,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap12" id="nilaiLap12" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap12" id="nilaiLap12" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap12" id="timbangLap12" value="0" step=".01" readonly />
@@ -288,7 +289,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap13" id="nilaiLap13" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap13" id="nilaiLap13" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap13" id="timbangLap13" value="0" step=".01" readonly />
@@ -304,7 +305,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap14" id="nilaiLap14" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap14" id="nilaiLap14" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap14" id="timbangLap14" value="0" step=".01" readonly />
@@ -332,7 +333,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap21" id="nilaiLap21" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap21" id="nilaiLap21" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap21" id="timbangLap21" value="0" step=".01" readonly />
@@ -348,7 +349,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap22" id="nilaiLap22" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap22" id="nilaiLap22" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap22" id="timbangLap22" value="0" step=".01" readonly />
@@ -364,7 +365,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap23" id="nilaiLap23" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap23" id="nilaiLap23" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap23" id="timbangLap23" value="0" step=".01" readonly />
@@ -380,7 +381,7 @@
                     <div class="col-sm-3">
                       <div class="row">
                         <div class="col-6 col-sm-12 mb-2">
-                          <input type="number" class="form-control text-end" title="Nilai" name="nilaiLap24" id="nilaiLap24" value="0" step="1" min="0" max="100" />
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap24" id="nilaiLap24" value="0" step="1" min="0" max="100" />
                         </div>
                         <div class="col-6 col-sm-12 mb-2">
                           <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap24" id="timbangLap24" value="0" step=".01" readonly />
@@ -397,121 +398,112 @@
                     </div>
                   </div>
                 </div>
-                <!-- Berita Acara dan Cetak Form -->
+                <!-- Berita Acara -->
                 <div class="tab-pane fade" id="vPillsBerita" role="tabpanel" tabindex="0">
                   <div class="hideif-laporan">
-                    <div class="hideif-penguji">
-                      <h2 class="fs-5">Revisi</h2>
-                      <div class="row mb-2">
-                        <div class="col-md-9">
-                          <span id="namaPembimbingProp">Nama Dosen Pembimbing</span>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen1" id="revisiPropDosen11" checked />
-                            <label class="btn btn-outline-primary" for="revisiPropDosen11" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen1" id="revisiPropDosen12" />
-                            <label class="btn btn-outline-primary" for="revisiPropDosen12" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
-                        </div>
+                    <h2 class="fs-5">Revisi</h2>
+                    <div class="row mb-2">
+                      <div class="col-md-9">
+                        <span id="namaPembimbingProp">Nama Dosen Pembimbing</span>
                       </div>
-                      <div class="row mb-2">
-                        <div class="col-md-9">
-                          <span id="namaPengujiProp">Nama Dosen Penguji</span>
+                      <div class="col-md-3">
+                        <div class="btn-group btn-group-sm" role="group">
+                          <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen1" id="revisiPropDosen11" checked />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen11" title="Ada Revisi">Ada</label>
+                          <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen1" id="revisiPropDosen12" />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen12" title="Tidak Ada Revisi">Tidak</label>
                         </div>
-                        <div class="col-md-3">
-                          <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen2" id="revisiPropDosen21" checked />
-                            <label class="btn btn-outline-primary" for="revisiPropDosen21" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen2" id="revisiPropDosen22" />
-                            <label class="btn btn-outline-primary" for="revisiPropDosen22" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
-                        </div>
-                      </div>
-                      <div class="mb-1"><span class="fw-semibold">Tim Penguji memutuskan bahwa PROPOSAL ini dinyatakan:</span></div>
-                      <div class="btn-group btn-group-sm" role="group">
-                        <input type="radio" class="btn-check" value="Disetujui" name="statusProp" id="statusProp1" checked />
-                        <label class="btn btn-outline-primary" for="statusProp1">Disetujui</label>
-                        <input type="radio" class="btn-check" value="Diperbaiki" name="statusProp" id="statusProp2" />
-                        <label class="btn btn-outline-primary" for="statusProp2">Diperbaiki</label>
-                      </div>
-                      <div class="border-top my-3 py-3">
-                        <button type="button" class="btn btn-danger btn-simpan">Simpan Semua Data Sebelum Cetak</button>
                       </div>
                     </div>
-                    <h3 class="fs-5">Cetak Form</h3>
-                    <div class="border-top mt-3 pt-2">
-                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp1">Form Penilaian</a>
-                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp3">Form Revisi</a>
-                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp4">Form Berita Acara</a>
-                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp5">Form Presensi</a>
+                    <div class="row mb-2">
+                      <div class="col-md-9">
+                        <span id="namaPengujiProp">Nama Dosen Penguji</span>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="btn-group btn-group-sm" role="group">
+                          <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen2" id="revisiPropDosen21" checked />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen21" title="Ada Revisi">Ada</label>
+                          <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen2" id="revisiPropDosen22" />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen22" title="Tidak Ada Revisi">Tidak</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-1"><span class="fw-semibold">Tim Penguji memutuskan bahwa PROPOSAL ini dinyatakan:</span></div>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <input type="radio" class="btn-check" value="Disetujui" name="statusProp" id="statusProp1" checked />
+                      <label class="btn btn-outline-primary" for="statusProp1">Disetujui</label>
+                      <input type="radio" class="btn-check" value="Diperbaiki" name="statusProp" id="statusProp2" />
+                      <label class="btn btn-outline-primary" for="statusProp2">Diperbaiki</label>
+                    </div>
+                    <div class="border-top my-3 py-3">
+                      <button type="button" class="btn btn-danger btn-simpan">Simpan Semua Data Sebelum Cetak</button>
                     </div>
                   </div>
                   <div class="hideif-proposal">
-                    <div class="hideif-penguji">
-                      <h2 class="fs-5">Nilai dan Revisi</h2>
+                    <div id="rekapLap1" class="mb-2 border-bottom">
+                      <h2 class="fs-5" id="rekapNamaMhs1">Nama Mahasiswa 1</h2>
                       <div class="row mb-2">
                         <div class="col-md-7">
-                          <span id="namaPembimbingProp">Nama Dosen Pembimbing</span>
+                          <span id="namaPembimbingLap1">Nama Dosen Pembimbing</span>
                         </div>
                         <div class="col-md-2">
-                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalDosen1" name="nilaiTotalDosen1" title="Nilai Dosen Pembimbing" value="0" step=".01" readonly>
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalDosen11" name="nilaiTotalDosen11" title="Nilai Dosen Pembimbing" value="0" step=".01" readonly />
                         </div>
                         <div class="col-md-3">
                           <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="1" name="revisiLapDosen1" id="revisiLapDosen11" checked />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen11" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="2" name="revisiLapDosen1" id="revisiLapDosen12" />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen12" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen11" id="revisiLapDosen111" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen111" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen11" id="revisiLapDosen112" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen112" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
                         </div>
                       </div>
                       <div class="row mb-2">
                         <div class="col-md-7">
-                          <span id="namaPengujiProp">Nama Dosen Penguji 1</span>
+                          <span id="namaPengujiLap11">Nama Dosen Penguji 1</span>
                         </div>
                         <div class="col-md-2">
-                          <input type="number" class="form-control text-end mb-1 form-control-sm" id="nilaiTotalDosen2" name="nilaiTotalDosen2" title="Nilai Dosen Penguji">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen12" name="nilaiTotalDosen12" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
                         </div>
                         <div class="col-md-3">
                           <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="1" name="revisiLapDosen2" id="revisiLapDosen21" checked />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen21" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="2" name="revisiLapDosen2" id="revisiLapDosen22" />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen22" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen12" id="revisiLapDosen121" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen121" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen12" id="revisiLapDosen122" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen122" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
                         </div>
                       </div>
                       <div class="row mb-2">
                         <div class="col-md-7">
-                          <span id="namaPengujiProp">Nama Dosen Penguji 2</span>
+                          <span id="namaPengujiLap12">Nama Dosen Penguji 2</span>
                         </div>
                         <div class="col-md-2">
-                          <input type="number" class="form-control text-end mb-1 form-control-sm" id="nilaiTotalDosen3" name="nilaiTotalDosen3" title="Nilai Dosen Penguji">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen13" name="nilaiTotalDosen13" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
                         </div>
                         <div class="col-md-3">
                           <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="1" name="revisiLapDosen3" id="revisiLapDosen31" checked />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen31" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="2" name="revisiLapDosen3" id="revisiLapDosen32" />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen32" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen13" id="revisiLapDosen131" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen131" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen13" id="revisiLapDosen132" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen132" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
                         </div>
                       </div>
                       <div class="row mb-2 hideif-perorangan">
                         <div class="col-md-7">
-                          <span id="namaPengujiProp">Nama Dosen Penguji 3</span>
+                          <span id="namaPengujiLap13">Nama Dosen Penguji 3</span>
                         </div>
                         <div class="col-md-2">
-                          <input type="number" class="form-control text-end mb-1 form-control-sm" id="nilaiTotalDosen4" name="nilaiTotalDosen4" title="Nilai Dosen Penguji">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen14" name="nilaiTotalDosen14" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
                         </div>
                         <div class="col-md-3">
                           <div class="btn-group btn-group-sm" role="group">
-                            <input type="radio" class="btn-check" value="1" name="revisiLapDosen4" id="revisiLapDosen41" checked />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen41" title="Ada Revisi">Ada</label>
-                            <input type="radio" class="btn-check" value="2" name="revisiLapDosen4" id="revisiLapDosen42" />
-                            <label class="btn btn-outline-primary" for="revisiLapDosen42" title="Tidak Ada Revisi">Tidak</label>
-                          </div>      
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen14" id="revisiLapDosen141" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen141" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen14" id="revisiLapDosen142" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen142" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
                         </div>
                       </div>
                       <div class="row mb-2">
@@ -519,31 +511,122 @@
                           <span>Total Nilai Sidang</span>
                         </div>
                         <div class="col-md-2">
-                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalSidang" name="nilaiTotalSidang" title="Total Nilai" value="0" step=".01" readonly>
+                          <input type="number" class="form-control text-end form-control-sm bg-light" id="nilaiTotalSidang1" name="nilaiTotalSidang1" title="Total Nilai" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-2">
+                          <input type="text" name="nilaiHuruf1" id="nilaiHuruf1" class="form-control mb-1 form-control-sm bg-light" title="Nilai Huruf" value="" />
                         </div>
                       </div>
-                      <div class="mb-1"><span class="fw-semibold">Tim Dosen Penguji memutuskan bahwa hasil SIDANG TUGAS AKHIR ini dinyatakan:</span></div>
-                      <div class="btn-group btn-group-sm" role="group">
-                        <input type="radio" class="btn-check" value="Lulus" name="statusLap" id="statusLap1" checked />
-                        <label class="btn btn-outline-primary" for="statusLap1">Lulus</label>
-                        <input type="radio" class="btn-check" value="Tidak Lulus" name="statusLap" id="statusLap2" />
-                        <label class="btn btn-outline-primary" for="statusLap2">Tidak Lulus</label>
-                        <input type="radio" class="btn-check" value="Diulang" name="statusLap" id="statusLap3" />
-                        <label class="btn btn-outline-primary" for="statusLap3">Diulang</label>
-                        <input type="radio" class="btn-check" value="Ditunda" name="statusLap" id="statusLap4" />
-                        <label class="btn btn-outline-primary" for="statusLap4">Ditunda</label>
+                    </div>
+                    <div id="rekapLap2" class="mb-2 border-bottom hideif-perorangan">
+                      <h2 class="fs-5" id="rekapNamaMhs2">Nama Mahasiswa 2</h2>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPembimbingLap2">Nama Dosen Pembimbing</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalDosen21" name="nilaiTotalDosen21" title="Nilai Dosen Pembimbing" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen21" id="revisiLapDosen211" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen211" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen21" id="revisiLapDosen212" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen212" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
                       </div>
-                      <div class="border-top my-3 py-3">
-                        <button type="button" class="btn btn-danger btn-simpan">Simpan Semua Data Sebelum Cetak</button>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap21">Nama Dosen Penguji 1</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen22" name="nilaiTotalDosen22" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen22" id="revisiLapDosen221" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen221" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen22" id="revisiLapDosen222" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen222" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap22">Nama Dosen Penguji 2</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen23" name="nilaiTotalDosen23" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen23" id="revisiLapDosen231" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen231" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen23" id="revisiLapDosen232" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen232" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2 hideif-perorangan">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap23">Nama Dosen Penguji 3</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen24" name="nilaiTotalDosen24" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen24" id="revisiLapDosen241" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen241" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen24" id="revisiLapDosen242" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen242" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span>Total Nilai Sidang</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalSidang2" name="nilaiTotalSidang2" title="Total Nilai" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-2">
+                          <input type="text" name="nilaiHuruf2" id="nilaiHuruf2" class="form-control mb-1 form-control-sm bg-light" title="Nilai Huruf" value="" />
+                        </div>
                       </div>
                     </div>
-                    <h3 class="fs-5">Cetak Form</h3>
-                    <div class="border-top mt-3 pt-2">
+                    <div class="mb-1"><span class="fw-semibold">Tim Dosen Penguji memutuskan bahwa hasil SIDANG TUGAS AKHIR ini dinyatakan:</span></div>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <input type="radio" class="btn-check" value="Lulus" name="statusLap" id="statusLap1" checked />
+                      <label class="btn btn-outline-primary" for="statusLap1">Lulus</label>
+                      <input type="radio" class="btn-check" value="Tidak Lulus" name="statusLap" id="statusLap2" />
+                      <label class="btn btn-outline-primary" for="statusLap2">Tidak Lulus</label>
+                      <input type="radio" class="btn-check" value="Diulang" name="statusLap" id="statusLap3" />
+                      <label class="btn btn-outline-primary" for="statusLap3">Diulang</label>
+                      <input type="radio" class="btn-check" value="Ditunda" name="statusLap" id="statusLap4" />
+                      <label class="btn btn-outline-primary" for="statusLap4">Ditunda</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Cetak Form -->
+                <div class="tab-pane fade" id="vPillsCetak" role="tabpanel" tabindex="0">
+                  <div class="hideif-laporan">
+                    <div class="mt-3 pt-2">
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp1">Form Penilaian</a>
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp3">Form Revisi</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp4">Form Berita Acara</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp5">Form Presensi</a>
+                    </div>
+                  </div>
+                  <div class="hideif-proposal">
+                    <div class="mt-3 pt-2">
                       <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakLap1">Form Penilaian 1</a>
                       <a href="#" class="btn btn-success mb-1 hideif-perorangan not-implemented" id="cetakLap2">Form Penilaian 2</a>
                       <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakLap3">Form Revisi</a>
                       <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakLap4">Form Berita Acara</a>
-                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakLap5">Form Rekapitulasi</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakLap5">Form Rekapitulasi 1</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-perorangan hideif-penguji not-implemented" id="cetakLap6">Form Rekapitulasi 2</a>
                     </div>
                   </div>
                 </div>
@@ -617,18 +700,6 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="buttonSetSidang" disabled>Pilih</button>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Toast -->
-    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
-      <div id="saveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body">
-            Data sudah tersimpan
-          </div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
     </div>

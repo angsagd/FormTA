@@ -42,9 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // set all form control value from active sidang
-  setValues(sidangs[config.active]);
+  setInitValues(sidangs[config.active]);
 
   // event listener
+
+  // even listener not yet implemented
+  document.querySelectorAll('.not-implemented').forEach(function(nyiEl) {
+    // add event listener click
+    nyiEl.addEventListener('click', function() {
+      // show alert
+      alert('Fitur belum diimplementasikan');
+    });
+  });
 
   // even listener select infoPordi
   document.getElementById('infoProdi').addEventListener('change', function() {
@@ -58,21 +67,68 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('#vPillsTab .nav-link').forEach(function(navLink) {
     navLink.addEventListener('click', function() {
       storeData(sidangs[config.active]);
+      setValues(sidangs[config.active]);
     });
   });
 
-  const saveToast = document.getElementById('saveToast')
-  // add event listener click to btn-simpan class
-  document.querySelectorAll('.btn-simpan').forEach(function(btnSimpan) {
-    btnSimpan.addEventListener('click', function() {
-      storeData(sidangs[config.active]);
-      const toast = new bootstrap.Toast(saveToast);
-      toast.show();
+  // add event listener input on text-timbang class
+  document.querySelectorAll('.text-timbang').forEach(function(textCalc) {
+    textCalc.addEventListener('input', function() {
+      let value = textCalc.value;
+      let elId = textCalc.id;
+      let index = elId.substring(elId.length - 2);
+      let part = elId.substring(elId.length - 2, elId.length - 1);
+      let bobot = bobotNilai[parseInt(elId.substring(elId.length - 1)) - 1];
+      document.getElementById('timbangLap'+index).value = (value*bobot)/100;
+      let total = 0;
+      for (let i = 1; i <= 4; i++) {
+        total += parseFloat(document.getElementById('timbangLap'+part+i).value);
+      }
+      document.getElementById('total'+part).value = total;
+    });
+  });
+
+  // add event listener input on text-rekap class
+  document.querySelectorAll('.text-rekap').forEach(function(textRekap) {
+    textRekap.addEventListener('input', function() {
+      let value = textRekap.value;
+      let elId = textRekap.id;
+      let part = elId.substring(elId.length - 2, elId.length - 1);
+      let nilai2, nilai3, nilai4;
+      let total = parseFloat(document.getElementById('nilaiTotalDosen'+part+'1').value) * .4;
+      if(document.getElementById('nilaiTotalDosen'+part+'2').value == '') nilai2 = 0;
+      else nilai2 = parseFloat(document.getElementById('nilaiTotalDosen'+part+'2').value);
+      if(document.getElementById('nilaiTotalDosen'+part+'3').value == '') nilai3 = 0;
+      else nilai3 = parseFloat(document.getElementById('nilaiTotalDosen'+part+'3').value);
+      if(document.getElementById('nilaiTotalDosen'+part+'4').value == '') nilai4 = 0;
+      else nilai4 = parseFloat(document.getElementById('nilaiTotalDosen'+part+'4').value);
+
+      if(sidangs[config.active].timMhs == 1) total += (nilai2 * .3) + (nilai3 * .3);
+      else total += (nilai2 * .2) + (nilai3 * .2) + (nilai4 * .2);
+      document.getElementById('nilaiTotalSidang'+part).value = Number((total).toFixed(2));
+
     });
   });
   
 });
 
+// funtion to set nama mahasiswa, penguji, nilai
+function setValues(sidang) {
+  document.getElementById('nilaiNamaMhs1').innerHTML = sidang.infoNamaMhs1;
+  document.getElementById('nilaiNamaMhs2').innerHTML = sidang.infoNamaMhs2;
+  document.getElementById('rekapNamaMhs1').innerHTML = sidang.infoNamaMhs1;
+  document.getElementById('rekapNamaMhs2').innerHTML = sidang.infoNamaMhs2;
+  document.getElementById('namaPembimbingLap1').innerHTML = sidang.namaDosen;
+  document.getElementById('namaPembimbingLap2').innerHTML = sidang.namaDosen;
+  document.getElementById('namaPengujiLap11').innerHTML = sidang.infoPenguji1;
+  document.getElementById('namaPengujiLap12').innerHTML = sidang.infoPenguji2;
+  document.getElementById('namaPengujiLap13').innerHTML = sidang.infoPenguji3;
+  document.getElementById('namaPengujiLap21').innerHTML = sidang.infoPenguji1;
+  document.getElementById('namaPengujiLap22').innerHTML = sidang.infoPenguji2;
+  document.getElementById('namaPengujiLap23').innerHTML = sidang.infoPenguji3;
+  document.getElementById('nilaiTotalDosen11').value = sidang.total1;
+  document.getElementById('nilaiTotalDosen21').value = sidang.total2;
+}
 
 // function to store data to active sidang on local storage
 function storeData(sidang) {
@@ -122,17 +178,28 @@ function storeData(sidang) {
   sidang.timbangLap24 = document.getElementById('timbangLap24').value;
   sidang.total2 = document.getElementById('total2').value;
     
-  // get data from vPillsBerita (Berita Acara dan Cetak Form)
+  // get data from vPillsBerita (Berita Acara)
   sidang.revisiPropDosen1 = document.querySelector('input[name="revisiPropDosen1"]:checked').value;
   sidang.revisiPropDosen2 = document.querySelector('input[name="revisiPropDosen2"]:checked').value;
   sidang.statusProp = document.querySelector('input[name="statusProp"]:checked').value;
-  sidang.revisiLapDosen1 = document.querySelector('input[name="revisiLapDosen1"]:checked').value;
-  sidang.nilaiTotalDosen2 = document.getElementById('nilaiTotalDosen2').value;
-  sidang.revisiLapDosen2 = document.querySelector('input[name="revisiLapDosen2"]:checked').value;
-  sidang.nilaiTotalDosen3 = document.getElementById('nilaiTotalDosen3').value;
-  sidang.revisiLapDosen3 = document.querySelector('input[name="revisiLapDosen3"]:checked').value;
-  sidang.nilaiTotalDosen4 = document.getElementById('nilaiTotalDosen4').value;
-  sidang.revisiLapDosen4 = document.querySelector('input[name="revisiLapDosen4"]:checked').value;
+  sidang.revisiLapDosen11 = document.querySelector('input[name="revisiLapDosen11"]:checked').value;
+  sidang.nilaiTotalDosen12 = document.getElementById('nilaiTotalDosen12').value;
+  sidang.revisiLapDosen12 = document.querySelector('input[name="revisiLapDosen12"]:checked').value;
+  sidang.nilaiTotalDosen13 = document.getElementById('nilaiTotalDosen13').value;
+  sidang.revisiLapDosen13 = document.querySelector('input[name="revisiLapDosen13"]:checked').value;
+  sidang.nilaiTotalDosen14 = document.getElementById('nilaiTotalDosen14').value;
+  sidang.revisiLapDosen14 = document.querySelector('input[name="revisiLapDosen14"]:checked').value;
+  sidang.nilaiTotalSidang1 = document.getElementById('nilaiTotalSidang1').value;
+  sidang.nilaiHuruf1 = document.getElementById('nilaiHuruf1').value;
+  sidang.revisiLapDosen21 = document.querySelector('input[name="revisiLapDosen21"]:checked').value;
+  sidang.nilaiTotalDosen22 = document.getElementById('nilaiTotalDosen22').value;
+  sidang.revisiLapDosen22 = document.querySelector('input[name="revisiLapDosen22"]:checked').value;
+  sidang.nilaiTotalDosen23 = document.getElementById('nilaiTotalDosen23').value;
+  sidang.revisiLapDosen23 = document.querySelector('input[name="revisiLapDosen23"]:checked').value;
+  sidang.nilaiTotalDosen24 = document.getElementById('nilaiTotalDosen24').value;
+  sidang.revisiLapDosen24 = document.querySelector('input[name="revisiLapDosen24"]:checked').value;
+  sidang.nilaiTotalSidang2 = document.getElementById('nilaiTotalSidang2').value;
+  sidang.nilaiHuruf2 = document.getElementById('nilaiHuruf2').value;
   sidang.statusLap = document.querySelector('input[name="statusLap"]:checked').value;
 
   // update current active sidang
@@ -143,7 +210,7 @@ function storeData(sidang) {
 }
 
 // function to set form control value
-function setValues(sidang) {
+function setInitValues(sidang) {
   // get data from vPillsInfo (Informasi Umum)
   if(sidang.infoNamaMhs1) document.getElementById('infoNamaMhs1').value = sidang.infoNamaMhs1;
   if(sidang.infoNIMMhs1) document.getElementById('infoNIMMhs1').value = sidang.infoNIMMhs1;
@@ -190,17 +257,27 @@ function setValues(sidang) {
   if(sidang.timbangLap24) document.getElementById('timbangLap24').value = sidang.timbangLap24;
   if(sidang.total2) document.getElementById('total2').value = sidang.total2;
     
-  // get data from vPillsBerita (Berita Acara dan Cetak Form)
+  // get data from vPillsBerita (Berita Acara)
   if(sidang.revisiPropDosen1) document.querySelector('input[name="revisiPropDosen1"][value="'+sidang.revisiPropDosen1+'"]').checked = true;
   if(sidang.revisiPropDosen2) document.querySelector('input[name="revisiPropDosen2"][value="'+sidang.revisiPropDosen2+'"]').checked = true;
   if(sidang.statusProp) document.querySelector('input[name="statusProp"][value="'+sidang.statusProp+'"]').checked = true;
-  if(sidang.revisiLapDosen1) document.querySelector('input[name="revisiLapDosen1"][value="'+sidang.revisiLapDosen1+'"]').checked = true;
-  if(sidang.nilaiTotalDosen2) document.getElementById('nilaiTotalDosen2').value = sidang.nilaiTotalDosen2;
-  if(sidang.revisiLapDosen2) document.querySelector('input[name="revisiLapDosen2"][value="'+sidang.revisiLapDosen2+'"]').checked = true;
-  if(sidang.nilaiTotalDosen3) document.getElementById('nilaiTotalDosen3').value = sidang.nilaiTotalDosen3;
-  if(sidang.revisiLapDosen3) document.querySelector('input[name="revisiLapDosen3"][value="'+sidang.revisiLapDosen3+'"]').checked = true;
-  if(sidang.nilaiTotalDosen4) document.getElementById('nilaiTotalDosen4').value = sidang.nilaiTotalDosen4;
-  if(sidang.revisiLapDosen4) document.querySelector('input[name="revisiLapDosen4"][value="'+sidang.revisiLapDosen4+'"]').checked = true;
+  if(sidang.revisiLapDosen11) document.querySelector('input[name="revisiLapDosen11"][value="'+sidang.revisiLapDosen11+'"]').checked = true;
+  if(sidang.nilaiTotalDosen12) document.getElementById('nilaiTotalDosen12').value = sidang.nilaiTotalDosen12;
+  if(sidang.revisiLapDosen12) document.querySelector('input[name="revisiLapDosen12"][value="'+sidang.revisiLapDosen12+'"]').checked = true;
+  if(sidang.nilaiTotalDosen13) document.getElementById('nilaiTotalDosen13').value = sidang.nilaiTotalDosen13;
+  if(sidang.revisiLapDosen13) document.querySelector('input[name="revisiLapDosen13"][value="'+sidang.revisiLapDosen13+'"]').checked = true;
+  if(sidang.nilaiTotalDosen14) document.getElementById('nilaiTotalDosen14').value = sidang.nilaiTotalDosen14;
+  if(sidang.revisiLapDosen14) document.querySelector('input[name="revisiLapDosen14"][value="'+sidang.revisiLapDosen14+'"]').checked = true;
+  if(sidang.nilaiTotalSidang1) document.getElementById('nilaiTotalSidang1').value = sidang.nilaiTotalSidang1;
+  if(sidang.nilaiHuruf1) document.getElementById('nilaiHuruf2').value = sidang.nilaiHuruf1;
+  if(sidang.revisiLapDosen21) document.querySelector('input[name="revisiLapDosen21"][value="'+sidang.revisiLapDosen21+'"]').checked = true;
+  if(sidang.nilaiTotalDosen22) document.getElementById('nilaiTotalDosen22').value = sidang.nilaiTotalDosen22;
+  if(sidang.revisiLapDosen22) document.querySelector('input[name="revisiLapDosen22"][value="'+sidang.revisiLapDosen22+'"]').checked = true;
+  if(sidang.nilaiTotalDosen23) document.getElementById('nilaiTotalDosen23').value = sidang.nilaiTotalDosen23;
+  if(sidang.revisiLapDosen23) document.querySelector('input[name="revisiLapDosen23"][value="'+sidang.revisiLapDosen23+'"]').checked = true;
+  if(sidang.nilaiTotalDosen24) document.getElementById('nilaiTotalDosen24').value = sidang.nilaiTotalDosen24;
+  if(sidang.revisiLapDosen24) document.querySelector('input[name="revisiLapDosen24"][value="'+sidang.revisiLapDosen24+'"]').checked = true;
+  if(sidang.nilaiTotalSidang2) document.getElementById('nilaiTotalSidang2').value = sidang.nilaiTotalSidang2;
+  if(sidang.nilaiHuruf2) document.getElementById('nilaiHuruf2').value = sidang.nilaiHuruf2;
   if(sidang.statusLap) document.querySelector('input[name="statusLap"][value="'+sidang.statusLap+'"]').checked = true;
-
 }

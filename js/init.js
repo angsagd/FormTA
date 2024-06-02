@@ -15,6 +15,18 @@ let newSidang = {
   createdAt: new Date().toISOString(),
 };
 
+let bobotNilai = [10, 15, 35, 40];
+let bobotDosen = [[40, 30, 30], [40, 20, 20, 20]];
+let nilaiHuruf = [
+  {max: 40, huruf: 'E'},
+  {max: 55, huruf: 'D'},
+  {max: 65, huruf: 'C'},
+  {max: 70, huruf: 'BC'},
+  {max: 80, huruf: 'B'},
+  {max: 85, huruf: 'AB'},
+  {max: 100, huruf: 'A'},
+];
+
 // if local storage 'config' doesn't exist
 if (!localStorage.getItem('config')) {
   // clear local storage 'sidangs'
