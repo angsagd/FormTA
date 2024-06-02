@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
       let value = textRekap.value;
       let elId = textRekap.id;
       let part = elId.substring(elId.length - 2, elId.length - 1);
-      let nilai2, nilai3, nilai4;
-      let total = parseFloat(document.getElementById('nilaiTotalDosen'+part+'1').value) * .4;
+      let nilai2, nilai3, nilai4, huruf;
+      let total = parseFloat(document.getElementById('nilaiTotalDosen'+part+'1').value) * 4;
       if(document.getElementById('nilaiTotalDosen'+part+'2').value == '') nilai2 = 0;
       else nilai2 = parseFloat(document.getElementById('nilaiTotalDosen'+part+'2').value);
       if(document.getElementById('nilaiTotalDosen'+part+'3').value == '') nilai3 = 0;
@@ -103,10 +103,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if(document.getElementById('nilaiTotalDosen'+part+'4').value == '') nilai4 = 0;
       else nilai4 = parseFloat(document.getElementById('nilaiTotalDosen'+part+'4').value);
 
-      if(sidangs[config.active].timMhs == 1) total += (nilai2 * .3) + (nilai3 * .3);
-      else total += (nilai2 * .2) + (nilai3 * .2) + (nilai4 * .2);
-      document.getElementById('nilaiTotalSidang'+part).value = Number((total).toFixed(2));
-
+      if(sidangs[config.active].timMhs == 1) total += (nilai2 * 3) + (nilai3 * 3);
+      else total += (nilai2 * 2) + (nilai3 * 2) + (nilai4 * 2);
+      document.getElementById('nilaiTotalSidang'+part).value = (total/10);
+      nilaiHuruf.every(nilai => {
+        if(total <= (nilai.max * 10)) {
+          huruf = nilai.huruf;
+          return false;
+        }
+        return true;
+      });
+      document.getElementById('nilaiHuruf'+part).value = huruf;
     });
   });
   
@@ -269,7 +276,7 @@ function setInitValues(sidang) {
   if(sidang.nilaiTotalDosen14) document.getElementById('nilaiTotalDosen14').value = sidang.nilaiTotalDosen14;
   if(sidang.revisiLapDosen14) document.querySelector('input[name="revisiLapDosen14"][value="'+sidang.revisiLapDosen14+'"]').checked = true;
   if(sidang.nilaiTotalSidang1) document.getElementById('nilaiTotalSidang1').value = sidang.nilaiTotalSidang1;
-  if(sidang.nilaiHuruf1) document.getElementById('nilaiHuruf2').value = sidang.nilaiHuruf1;
+  if(sidang.nilaiHuruf1) document.getElementById('nilaiHuruf1').value = sidang.nilaiHuruf1;
   if(sidang.revisiLapDosen21) document.querySelector('input[name="revisiLapDosen21"][value="'+sidang.revisiLapDosen21+'"]').checked = true;
   if(sidang.nilaiTotalDosen22) document.getElementById('nilaiTotalDosen22').value = sidang.nilaiTotalDosen22;
   if(sidang.revisiLapDosen22) document.querySelector('input[name="revisiLapDosen22"][value="'+sidang.revisiLapDosen22+'"]').checked = true;
