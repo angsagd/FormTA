@@ -17,6 +17,9 @@ Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan 
 - TA perorangan atau berkelompok
 - Cetak form
 - Penyimpanan data lokal
+- HTML 5
+- Bootstrap 5.3.3
+- Vanilla JavaScript
 
 ## Lisensi
 

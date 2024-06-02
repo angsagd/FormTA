@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Penilaian Tugas Akhir</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" href="img/clipboard-data-fill.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/forms-min.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand user-select-none">
+          <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+            <path fill="#fff" d="M184 88a229 229 0 0 0-15 19 95 95 0 0 0-16 38v16c2 13 6 25 14 39a253 253 0 0 0 26 40 108 108 0 0 1 8 11 137 137 0 0 1 16 34l3 22c0 2 0 2 1 1a65 65 0 0 0 12-28c3-14-1-32-11-50a276 276 0 0 0-23-36 116 116 0 0 1-16-96 310 310 0 0 1 1-10" />
+            <path fill="#fff" d="M143 147a114 114 0 0 0-13 23c-5 12-7 31-4 43a73 73 0 0 0 3 9 44 44 0 0 0 26 24l8 4a105 105 0 0 1 35 21l2 2-1-3-1-3a72 72 0 0 0-16-25 110 110 0 0 0-6-6 120 120 0 0 1-32-90l-1 1" />
+            <path fill="#fff" d="M225 46a102 102 0 0 0-24 36 133 133 0 0 0-4 15 112 112 0 0 0 16 91 471 471 0 0 0 22 34 123 123 0 0 1 13 36c2 7 2 15 1 19a58 58 0 0 1-11 29c-7 10-19 16-31 17h-2v-1c2-6 1-14-1-22a57 57 0 0 0-10-19 57 57 0 0 0-8-7c-2-2-14-8-26-12a90 90 0 0 1-27-12 54 54 0 0 1-9-9c-1-2-7-11-9-17-2-3-2-3-2-1a143 143 0 0 0 5 52 99 99 0 0 1-9 4l5 13h2a71 71 0 0 1 8-3l1 2a93 93 0 0 0 3 7l-4 3-3 2h-1l1 2 7 11h1a38 38 0 0 1 3-3l5-3v1l4 4 2 3-1 1a35 35 0 0 1-2 3l-3 2v2l1 1 2 2 8 6a420 420 0 0 0 6-7l3 1 5 4 1 1-4 8a59 59 0 0 0 13 8l2-5c2-4 2-5 3-4a46 46 0 0 0 5 1l4 2h1l-2 10a50 50 0 0 0 15 2 107 107 0 0 0 1-9h11l1 4 1 5 14-2-1-5v-5h2l5-2 2-1h1l1 2 3 7 2-1a313 313 0 0 1 10-5l2-1-1-1-2-3c-3-5-3-5-1-6a82 82 0 0 0 6-4h1l2 2 5 5 11-11h-1l-3-4-3-3a341 341 0 0 1 6-7 129 129 0 0 1 8 5 64 64 0 0 0 8-13l-3-2a287 287 0 0 1-5-4 41 41 0 0 0 2-5l4-14c2-8 2-21 0-29a114 114 0 0 0-17-40 1277 1277 0 0 0-43-65 200 200 0 0 1-9-20 88 88 0 0 1-4-20 126 126 0 0 1 1-30 130 130 0 0 1 9-28c2-3 2-3-1 0" />
+          </svg>
+          Penilaian Tugas Akhir
+        </a>
+        <div class="dropdown">
+          <a title="Menu" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle text-white fs-4"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item disabled text-dark" id="menuNamaDosen">Dosen</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#" id="menuSidangBaru">Sidang Baru</a></li>
+            <li><a class="dropdown-item" href="#" id="menuDataSidang" data-bs-toggle="modal" data-bs-target="#dataModal">Data Sidang</a></li>
+            <li><a class="dropdown-item" href="#" id="menuHapusData">Hapus Data</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#" id="menuSyaratKetentuan" data-bs-toggle="modal" data-bs-target="#tncModal">Syarat dan Ketentuan</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-shrink-0 mt-2 mb-4">
+      <div class="container">
+        <div class="card mt-3 text-bg-light">
+          <div class="card-header">
+            <button title="menu" id="vPillsNavToogle" class="btn btn-sm btn-warning float-start btn-sidebar me-2 d-block d-md-none" type="button">
+              <i class="bi bi-list"></i>
+            </button>
+            <h5 class="card-title">Data Form</h5>
+          </div>
+          <div class="card-body">
+            <!-- Vertical Tab start -->
+            <div class="d-flex align-items-start">
+              <div class="nav flex-column nav-pills me-3 bg-light d-none d-md-flex text-nowrap" id="vPillsTab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="vPillsInfoTab" data-bs-toggle="pill" data-bs-target="#vPillsInfo" type="button" role="tab">Informasi Umum</button>
+                <button class="nav-link" id="vPillsRevisiTab" data-bs-toggle="pill" data-bs-target="#vPillsRevisi" type="button" role="tab">Revisi</button>
+                <button class="nav-link hideif-laporan" id="vPillsNilaiProTab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiPro" type="button" role="tab">Penilaian</button>
+                <button class="nav-link hideif-proposal" id="vPillsNilaiLap1Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap1" type="button" role="tab">Penilaian</button>
+                <button class="nav-link hideif-proposal hideif-perorangan" id="vPillsNilaiLap2Tab" data-bs-toggle="pill" data-bs-target="#vPillsNilaiLap2" type="button" role="tab">Penilaian</button>
+                <button class="nav-link hideif-penguji" id="vPillsBeritaTab" data-bs-toggle="pill" data-bs-target="#vPillsBerita" type="button" role="tab">Berita Acara</button>
+                <button class="nav-link" id="vPillsCetakTab" data-bs-toggle="pill" data-bs-target="#vPillsCetak" type="button" role="tab">Cetak</button>
+              </div>
+              <div class="tab-content flex-fill" id="vPillsTabContent">
+                <!-- Informasi Umum -->
+                <div class="tab-pane fade show active" id="vPillsInfo" role="tabpanel" tabindex="0">
+                  <div class="border-bottom mb-2">
+                    <div class="row mb-2">
+                      <div class="col-md-3">
+                        <label for="infoNamaMhs1">Nama Mahasiswa</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoNamaMhs1" name="infoNamaMhs1" />
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="col-md-3">
+                        <label for="infoNIMMhs1">N I M</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoNIMMhs1" name="infoNIMMhs1" pattern="[0-9]{9}" maxlength="9" onkeypress="return event.charCode>=48 && event.charCode<=57" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 hideif-laporan">
+                      <div class="col-md-3">
+                        <label for="infoTelp1">Nomer Telepon</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoTelp1" name="infoTelp1" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border-bottom mb-2 hideif-perorangan">
+                    <div class="row mb-2">
+                      <div class="col-md-3">
+                        <label for="infoNamaMhs2">Nama Mahasiswa</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoNamaMhs2" name="infoNamaMhs2" />
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="col-md-3">
+                        <label for="infoNIMMhs2">N I M</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoNIMMhs2" name="infoNIMMhs2" pattern="[0-9]{9}" maxlength="9" onkeypress="return event.charCode>=48 && event.charCode<=57" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 hideif-laporan">
+                      <div class="col-md-3">
+                        <label for="infoTelp2">Nomer Telepon</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" id="infoTelp2" name="infoTelp2" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-md-3">
+                      <label for="infoJudul">Judul Tugas Akhir</label>
+                    </div>
+                    <div class="col-md-9">
+                      <textarea name="infoJudul" id="infoJudul" class="form-control" rows="2"></textarea>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-md-3">
+                      <label for="infoProdi">Program Studi</label>
+                    </div>
+                    <div class="col-md-9">
+                      <select name="infoProdi" id="infoProdi" class="form-select">
+                        <option disabled selected>-- Pilih Program Studi --</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-md-3">
+                      <label for="infoKaprodi">Ka Program Studi</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="infoKaprodi" name="infoKaprodi" readonly />
+                    </div>
+                  </div>
+                  <div class="row mb-2 hideif-penguji">
+                    <div class="col-md-3">
+                      <label for="infoPenguji1">Penguji 1</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="infoPenguji1" name="infoPenguji1" />
+                    </div>
+                  </div>
+                  <div class="row mb-2 hideif-penguji hideif-proposal">
+                    <div class="col-md-3">
+                      <label for="infoPenguji2">Penguji 2</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="infoPenguji2" name="infoPenguji2" />
+                    </div>
+                  </div>
+                  <div class="row mb-2 hideif-penguji hideif-proposal hideif-perorangan">
+                    <div class="col-md-3">
+                      <label for="infoPenguji3">Penguji 3</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="infoPenguji3" name="infoPenguji3" />
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-md-3">
+                      <label for="infoTanggal">Tanggal Sidang</label>
+                    </div>
+                    <div class="col-md-9">
+                      <input type="date" class="form-control" id="infoTanggal" name="infoTanggal" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Revisi -->
+                <div class="tab-pane fade" id="vPillsRevisi" role="tabpanel" tabindex="0">
+                  <textarea title="Revisian" name="revisi" id="revisiContent" class="form-control fs-5" rows="15"></textarea>
+                </div>
+                <!-- Penilaian Proposal -->
+                <div class="tab-pane fade" id="vPillsNilaiPro" role="tabpanel" tabindex="0">
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Presentasi dan Penampilan</h3>
+                    <div class="col-sm-9">
+                      <p>Kesiapan dalam pemaparan materi; Sistematika, kelengkapan, dan kualitas konten; Tampilan slide presentasi; Ketepatan waktu dan durasi; Etika, gaya bahasa / komunikasi, sopan santun, dan cara berpakaian;</p>
+                    </div>
+                    <div class="col-sm-3 mb-2">
+                      <div class="btn-group-sm btn-group-custom" role="group">
+                        <input type="radio" class="btn-check" name="nilaiProp1" id="nilaiProp11" value="Baik" checked />
+                        <label class="btn btn-outline-primary" for="nilaiProp11">Baik</label>
+                        <input type="radio" class="btn-check" name="nilaiProp1" id="nilaiProp12" value="Cukup" />
+                        <label class="btn btn-outline-primary" for="nilaiProp12">Cukup</label>
+                        <input type="radio" class="btn-check" name="nilaiProp1" id="nilaiProp13" value="Kurang" />
+                        <label class="btn btn-outline-primary" for="nilaiProp13">Kurang</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Sistematika dan Format Proposal</h3>
+                    <div class="col-sm-9">
+                      <p>Kesesuaian format penulisan proposal dengan pedoman; Menggunakan Bahasa Indonesia dengan baik dan benar; Menggunakan instrumen pendukung seperti gambar dan tabel dengan baik, jelas, dan relevan;</p>
+                    </div>
+                    <div class="col-sm-3 mb-2">
+                      <div class="btn-group-sm btn-group-custom" role="group">
+                        <input type="radio" class="btn-check" name="nilaiProp2" id="nilaiProp21" value="Baik" checked />
+                        <label class="btn btn-outline-primary" for="nilaiProp21">Baik</label>
+                        <input type="radio" class="btn-check" name="nilaiProp2" id="nilaiProp22" value="Cukup" />
+                        <label class="btn btn-outline-primary" for="nilaiProp22">Cukup</label>
+                        <input type="radio" class="btn-check" name="nilaiProp2" id="nilaiProp23" value="Kurang" />
+                        <label class="btn btn-outline-primary" for="nilaiProp23">Kurang</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Kelayakan Proposal</h3>
+                    <div class="col-sm-9">
+                      <p>Kompleksitas dari penelitian; Kreativitas, inovasi dan kemutakhiran teknologi; Ketajaman latar belakang, rumusan masalah, ruang lingkup, serta hasil analisis; Ketepatan dan keakuratan metodologi; Relevansi dan kemutakhiran pustaka acuan; Kesesuaian jadwal kerja.</p>
+                    </div>
+                    <div class="col-sm-3 mb-2">
+                      <div class="btn-group-sm btn-group-custom" role="group">
+                        <input type="radio" class="btn-check" name="nilaiProp3" id="nilaiProp31" value="Baik" checked />
+                        <label class="btn btn-outline-primary" for="nilaiProp31">Baik</label>
+                        <input type="radio" class="btn-check" name="nilaiProp3" id="nilaiProp32" value="Cukup" />
+                        <label class="btn btn-outline-primary" for="nilaiProp32">Cukup</label>
+                        <input type="radio" class="btn-check" name="nilaiProp3" id="nilaiProp33" value="Kurang" />
+                        <label class="btn btn-outline-primary" for="nilaiProp33">Kurang</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <h3 class="fs-5">Kemampuan dan Penguasaan Materi</h3>
+                    <div class="col-sm-9">
+                      <p>Kemampuan analisis; Kesesuaian dan kualitas dalam menjawab pertanyaan; Pemahaman konsep, konteks dan subtansi dari penelitian yang akan dilakukan; Kemampuan teknis dalam pelaksanaan penelitian.</p>
+                    </div>
+                    <div class="col-sm-3 mb-2">
+                      <div class="btn-group-sm btn-group-custom" role="group">
+                        <input type="radio" class="btn-check" name="nilaiProp4" id="nilaiProp41" value="Baik" checked />
+                        <label class="btn btn-outline-primary" for="nilaiProp41">Baik</label>
+                        <input type="radio" class="btn-check" name="nilaiProp4" id="nilaiProp42" value="Cukup" />
+                        <label class="btn btn-outline-primary" for="nilaiProp42">Cukup</label>
+                        <input type="radio" class="btn-check" name="nilaiProp4" id="nilaiProp43" value="Kurang" />
+                        <label class="btn btn-outline-primary" for="nilaiProp43">Kurang</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Penilaian 1 -->
+                <div class="tab-pane fade" id="vPillsNilaiLap1" role="tabpanel" tabindex="0">
+                  <h2 class="fs-5 pb-2 border-bottom" id="nilaiNamaMhs1">Nama Mahasiswa 1</h2>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Presentasi dan Penampilan</h3>
+                    <div class="col-sm-9">
+                      <p>Kesiapan dalam pemaparan materi; Sistematika, kelengkapan, dan kualitas konten; Tampilan slide presentasi; Ketepatan waktu dan durasi; Etika, gaya bahasa / komunikasi, sopan santun, dan cara berpakaian;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap11" id="nilaiLap11" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap11" id="timbangLap11" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Sistematika dan Format Laporan</h3>
+                    <div class="col-sm-9">
+                      <p>Kesesuaian format penulisan laporan dengan pedoman; Menggunakan Bahasa Indonesia dengan baik dan benar; Menggunakan instrumen pendukung seperti gambar dan tabel dengan baik, jelas, dan relevan;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap12" id="nilaiLap12" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap12" id="timbangLap12" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Kualitas Hasil Penelitian</h3>
+                    <div class="col-sm-9">
+                      <p>Kompleksitas dari penelitian; Kreativitas, inovasi dan kemutakhiran teknologi; Ketajaman latar belakang, rumusan masalah, ruang lingkup, serta hasil analisis; Ketepatan dan keakuratan metodologi; Ketepatan dalam penyimpulan hasil; Relevansi dan kemutakhiran pustaka acuan; Tidak adanya unsur plagiarisme;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap13" id="nilaiLap13" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap13" id="timbangLap13" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Kemampuan dan Penguasaan Materi</h3>
+                    <div class="col-sm-9">
+                      <p>Kemampuan analisis; Kesesuaian dan kualitas dalam menjawab pertanyaan; Pemahaman konsep, konteks dan subtansi dari penelitian; Kemampuan teknis dalam pelaksanaan penelitian.</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap14" id="nilaiLap14" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap14" id="timbangLap14" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6 col-sm-9">
+                      <h3 class="fs-5">Total Nilai</h3>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                      <input type="number" class="form-control text-end bg-light" title="Total" name="total1" id="total1" value="0" step=".01" readonly />
+                    </div>
+                  </div>
+                </div>
+                <!-- Penilaian 2 -->
+                <div class="tab-pane fade" id="vPillsNilaiLap2" role="tabpanel" tabindex="0">
+                  <h2 class="fs-5 pb-2 border-bottom" id="nilaiNamaMhs2">Nama Mahasiswa 2</h2>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Presentasi dan Penampilan</h3>
+                    <div class="col-sm-9">
+                      <p>Kesiapan dalam pemaparan materi; Sistematika, kelengkapan, dan kualitas konten; Tampilan slide presentasi; Ketepatan waktu dan durasi; Etika, gaya bahasa / komunikasi, sopan santun, dan cara berpakaian;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap21" id="nilaiLap21" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap21" id="timbangLap21" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Sistematika dan Format Laporan</h3>
+                    <div class="col-sm-9">
+                      <p>Kesesuaian format penulisan laporan dengan pedoman; Menggunakan Bahasa Indonesia dengan baik dan benar; Menggunakan instrumen pendukung seperti gambar dan tabel dengan baik, jelas, dan relevan;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap22" id="nilaiLap22" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap22" id="timbangLap22" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Kualitas Hasil Penelitian</h3>
+                    <div class="col-sm-9">
+                      <p>Kompleksitas dari penelitian; Kreativitas, inovasi dan kemutakhiran teknologi; Ketajaman latar belakang, rumusan masalah, ruang lingkup, serta hasil analisis; Ketepatan dan keakuratan metodologi; Ketepatan dalam penyimpulan hasil; Relevansi dan kemutakhiran pustaka acuan; Tidak adanya unsur plagiarisme;</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap23" id="nilaiLap23" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap23" id="timbangLap23" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2 border-bottom">
+                    <h3 class="fs-5">Kemampuan dan Penguasaan Materi</h3>
+                    <div class="col-sm-9">
+                      <p>Kemampuan analisis; Kesesuaian dan kualitas dalam menjawab pertanyaan; Pemahaman konsep, konteks dan subtansi dari penelitian; Kemampuan teknis dalam pelaksanaan penelitian.</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end text-timbang" title="Nilai" name="nilaiLap24" id="nilaiLap24" value="0" step="1" min="0" max="100" />
+                        </div>
+                        <div class="col-6 col-sm-12 mb-2">
+                          <input type="number" class="form-control text-end bg-light" title="Tertimbang" name="timbangLap24" id="timbangLap24" value="0" step=".01" readonly />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6 col-sm-9">
+                      <h3 class="fs-5">Total Nilai</h3>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                      <input type="number" class="form-control text-end bg-light" title="Total" name="total2" id="total2" value="0" step=".01" readonly />
+                    </div>
+                  </div>
+                </div>
+                <!-- Berita Acara -->
+                <div class="tab-pane fade" id="vPillsBerita" role="tabpanel" tabindex="0">
+                  <div class="hideif-laporan">
+                    <h2 class="fs-5">Revisi</h2>
+                    <div class="row mb-2">
+                      <div class="col-md-9">
+                        <span id="namaPembimbingProp">Nama Dosen Pembimbing</span>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="btn-group btn-group-sm" role="group">
+                          <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen1" id="revisiPropDosen11" checked />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen11" title="Ada Revisi">Ada</label>
+                          <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen1" id="revisiPropDosen12" />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen12" title="Tidak Ada Revisi">Tidak</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="col-md-9">
+                        <span id="namaPengujiProp">Nama Dosen Penguji</span>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="btn-group btn-group-sm" role="group">
+                          <input type="radio" class="btn-check" value="Ada" name="revisiPropDosen2" id="revisiPropDosen21" checked />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen21" title="Ada Revisi">Ada</label>
+                          <input type="radio" class="btn-check" value="Tidak" name="revisiPropDosen2" id="revisiPropDosen22" />
+                          <label class="btn btn-outline-primary" for="revisiPropDosen22" title="Tidak Ada Revisi">Tidak</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-1"><span class="fw-semibold">Tim Penguji memutuskan bahwa PROPOSAL ini dinyatakan:</span></div>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <input type="radio" class="btn-check" value="Disetujui" name="statusProp" id="statusProp1" checked />
+                      <label class="btn btn-outline-primary" for="statusProp1">Disetujui</label>
+                      <input type="radio" class="btn-check" value="Diperbaiki" name="statusProp" id="statusProp2" />
+                      <label class="btn btn-outline-primary" for="statusProp2">Diperbaiki</label>
+                    </div>
+                    <div class="border-top my-3 py-3">
+                      <button type="button" class="btn btn-danger btn-simpan">Simpan Semua Data Sebelum Cetak</button>
+                    </div>
+                  </div>
+                  <div class="hideif-proposal">
+                    <div id="rekapLap1" class="mb-2 border-bottom">
+                      <h2 class="fs-5" id="rekapNamaMhs1">Nama Mahasiswa 1</h2>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPembimbingLap1">Nama Dosen Pembimbing</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalDosen11" name="nilaiTotalDosen11" title="Nilai Dosen Pembimbing" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen11" id="revisiLapDosen111" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen111" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen11" id="revisiLapDosen112" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen112" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap11">Nama Dosen Penguji 1</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen12" name="nilaiTotalDosen12" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen12" id="revisiLapDosen121" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen121" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen12" id="revisiLapDosen122" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen122" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap12">Nama Dosen Penguji 2</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen13" name="nilaiTotalDosen13" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen13" id="revisiLapDosen131" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen131" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen13" id="revisiLapDosen132" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen132" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2 hideif-perorangan">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap13">Nama Dosen Penguji 3</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen14" name="nilaiTotalDosen14" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen14" id="revisiLapDosen141" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen141" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen14" id="revisiLapDosen142" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen142" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span>Total Nilai Sidang</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end form-control-sm bg-light" id="nilaiTotalSidang1" name="nilaiTotalSidang1" title="Total Nilai" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-2">
+                          <input type="text" name="nilaiHuruf1" id="nilaiHuruf1" class="form-control mb-1 form-control-sm bg-light" title="Nilai Huruf" value="" readonly />
+                        </div>
+                      </div>
+                    </div>
+                    <div id="rekapLap2" class="mb-2 border-bottom hideif-perorangan">
+                      <h2 class="fs-5" id="rekapNamaMhs2">Nama Mahasiswa 2</h2>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPembimbingLap2">Nama Dosen Pembimbing</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalDosen21" name="nilaiTotalDosen21" title="Nilai Dosen Pembimbing" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen21" id="revisiLapDosen211" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen211" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen21" id="revisiLapDosen212" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen212" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap21">Nama Dosen Penguji 1</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen22" name="nilaiTotalDosen22" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen22" id="revisiLapDosen221" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen221" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen22" id="revisiLapDosen222" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen222" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap22">Nama Dosen Penguji 2</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen23" name="nilaiTotalDosen23" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen23" id="revisiLapDosen231" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen231" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen23" id="revisiLapDosen232" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen232" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2 hideif-perorangan">
+                        <div class="col-md-7">
+                          <span id="namaPengujiLap23">Nama Dosen Penguji 3</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm text-rekap" id="nilaiTotalDosen24" name="nilaiTotalDosen24" title="Nilai Dosen Penguji" value="" step=".01" min="0" max="100" />
+                        </div>
+                        <div class="col-md-3">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <input type="radio" class="btn-check" value="Ada" name="revisiLapDosen24" id="revisiLapDosen241" checked />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen241" title="Ada Revisi">Ada</label>
+                            <input type="radio" class="btn-check" value="Tidak" name="revisiLapDosen24" id="revisiLapDosen242" />
+                            <label class="btn btn-outline-primary" for="revisiLapDosen242" title="Tidak Ada Revisi">Tidak</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-md-7">
+                          <span>Total Nilai Sidang</span>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" class="form-control text-end mb-1 form-control-sm bg-light" id="nilaiTotalSidang2" name="nilaiTotalSidang2" title="Total Nilai" value="0" step=".01" readonly />
+                        </div>
+                        <div class="col-md-2">
+                          <input type="text" name="nilaiHuruf2" id="nilaiHuruf2" class="form-control mb-1 form-control-sm bg-light" title="Nilai Huruf" value="" readonly />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-1"><span class="fw-semibold">Tim Dosen Penguji memutuskan bahwa hasil SIDANG TUGAS AKHIR ini dinyatakan:</span></div>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <input type="radio" class="btn-check" value="Lulus" name="statusLap" id="statusLap1" checked />
+                      <label class="btn btn-outline-primary" for="statusLap1">Lulus</label>
+                      <input type="radio" class="btn-check" value="Tidak Lulus" name="statusLap" id="statusLap2" />
+                      <label class="btn btn-outline-primary" for="statusLap2">Tidak Lulus</label>
+                      <input type="radio" class="btn-check" value="Diulang" name="statusLap" id="statusLap3" />
+                      <label class="btn btn-outline-primary" for="statusLap3">Diulang</label>
+                      <input type="radio" class="btn-check" value="Ditunda" name="statusLap" id="statusLap4" />
+                      <label class="btn btn-outline-primary" for="statusLap4">Ditunda</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Cetak Form -->
+                <div class="tab-pane fade" id="vPillsCetak" role="tabpanel" tabindex="0">
+                  <div class="hideif-laporan">
+                    <div class="mt-3 pt-2">
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp1">Form Penilaian</a>
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakProp3">Form Revisi</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp4">Form Berita Acara</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakProp5">Form Presensi</a>
+                    </div>
+                  </div>
+                  <div class="hideif-proposal">
+                    <div class="mt-3 pt-2">
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakLap1">Form Penilaian 1</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-perorangan not-implemented" id="cetakLap2">Form Penilaian 2</a>
+                      <a href="#" class="btn btn-success mb-1 not-implemented" id="cetakLap3">Form Revisi</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakLap4">Form Berita Acara</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-penguji not-implemented" id="cetakLap5">Form Rekapitulasi 1</a>
+                      <a href="#" class="btn btn-success mb-1 hideif-perorangan hideif-penguji not-implemented" id="cetakLap6">Form Rekapitulasi 2</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Vertical Tab end -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-1 bg-primary sticky-bottom">
+      <div class="container">
+        <small class="text-bg-primary fw-lighter fst-italic">Crafted by @<a href="https://github.com/angsagd" class="text-reset">angsagd</a> every Sunday</small>
+      </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- T&C Modal -->
+    <div class="modal fade" id="tncModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tncModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4" id="tncModalLabel">Syarat dan Ketentuan Penggunaan</h1>
+          </div>
+          <div class="modal-body">
+            <h4 class="fs-5">Preamble</h4>
+            <p>Aplikasi ini dirancang untuk membantu dalam proses penilaian ujian proposal dan sidang tugas akhir. Harap baca Syarat dan Ketentuan berikut dengan seksama sebelum menggunakan aplikasi ini.</p>
+            <h4 class="fs-5">A. Penggunaan Aplikasi</h4>
+            <p>Aplikasi ini bukanlah aplikasi resmi dari ITB STIKOM Bali. Aplikasi ini dibuat oleh pengembang independen dan ditujukan untuk membantu dalam melakukan penilaian ujian proposal dan sidang tugas akhir. Pengguna aplikasi ini harus memahami bahwa aplikasi ini tidak memiliki afiliasi resmi dengan ITB STIKOM Bali.</p>
+            <h4 class="fs-5">B. Penggunaan oleh Dosen Lain</h4>
+            <p>Dosen lain di ITB STIKOM Bali boleh menggunakan aplikasi ini jika dirasa aplikasi ini membantu dalam proses penilaian. Namun, penggunaan aplikasi ini sepenuhnya atas kebijaksanaan dan tanggung jawab pengguna.</p>
+            <h4 class="fs-5">C. Tanggung Jawab Pengguna</h4>
+            <p>Penggunaan aplikasi ini dilakukan dengan risiko yang ditanggung sendiri oleh pengguna. Pengembang aplikasi tidak bertanggung jawab atas segala kerugian atau masalah yang timbul dari penggunaan aplikasi ini. Pengguna tidak dapat mengaitkan masalah yang terjadi akibat penggunaan aplikasi ini dengan pengembang aplikasi.</p>
+            <h4 class="fs-5">D. Lisensi dan Penggunaan Sumber Terbuka</h4>
+            <p>Aplikasi ini berlisensi open source. Pengguna bebas untuk menggunakan, memodifikasi, dan mendistribusikan ulang aplikasi ini sesuai dengan ketentuan lisensi open source yang berlaku. Sumber kode aplikasi ini dapat diunduh di GitHub.</p>
+            <h4 class="fs-5">E. Modifikasi dan Distribusi</h4>
+            <p>Pengguna dapat melakukan modifikasi pada aplikasi ini sesuai kebutuhan mereka. Namun, setiap modifikasi dan distribusi ulang harus tetap mencantumkan informasi mengenai lisensi open source yang berlaku serta sumber asli dari aplikasi ini.</p>
+            <h4 class="fs-5">F. Pembaruan dan Dukungan</h4>
+            <p>Pengembang aplikasi tidak berkewajiban untuk menyediakan pembaruan atau dukungan teknis untuk aplikasi ini. Pengguna dapat mengajukan perubahan atau perbaikan melalui repositori GitHub yang tersedia.</p>
+            <h4 class="fs-5">G. Kebijakan Pengelolaan Data</h4>
+            <p>Pengguna diharapkan untuk memahami dan menyetujui kebijakan pengelolaan data berikut ini:</p>
+            <p>1. <strong>Proses Data:</strong> Semua data yang dimasukkan ke dalam aplikasi ini diproses secara lokal di browser pengguna atau perangkat lokal pengguna. Tidak ada data yang dikirimkan atau disimpan di server eksternal manapun.</p>
+            <p>2. <strong>Privasi:</strong> Pengguna bertanggung jawab untuk menjaga kerahasiaan data yang mereka masukkan ke dalam aplikasi. Pengembang aplikasi tidak memiliki akses ke data yang dimasukkan oleh pengguna.</p>
+            <p>3. <strong>Penyimpanan Data:</strong> Data yang dihasilkan atau disimpan dalam aplikasi ini berada sepenuhnya di bawah kendali pengguna. Pengguna dapat menghapus data kapan saja sesuai kebutuhan mereka.</p>
+            <h4 class="fs-5">H. Penutup</h4>
+            <p>Dengan menggunakan aplikasi ini, pengguna dianggap telah menyetujui semua syarat dan ketentuan yang disebutkan di atas. Jika pengguna tidak menyetujui syarat dan ketentuan ini, disarankan untuk tidak menggunakan aplikasi ini.</p>
+            <p>Untuk mengunduh source code aplikasi, silakan kunjungi <a href="https://github.com/angsagd/FormTA">GitHub Repository</a>.</p>
+            <p>Dokumen ini berlaku mulai dari tanggal dikeluarkan dan dapat diubah sewaktu-waktu oleh pengembang. Pengguna diharapkan untuk selalu memeriksa pembaruan dari syarat dan ketentuan ini.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="tncAgree">Setuju</button>
+            <a href="https://github.com/angsagd/FormTA" class="btn btn-danger" id="tncNotAgree">Tidak Setuju</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Selection Modal -->
+    <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4" id="dataModalLabel">Data Sidang</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <select class="form-select" size="4" id="selectSidang" name="sidang-tersimpan"></select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="buttonSetSidang" disabled>Pilih</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/init-min.js"></script>
+    <script src="js/forms-min.js"></script>
+  </body>
+</html>

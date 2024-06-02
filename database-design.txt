@@ -1,0 +1,67 @@
+
+##config-data
+{
+  'tnc' => false,
+  'active' => 0,  
+}
+
+
+##sidang-data
+
+- id
+- nama_dosen
+- status_dosen [pembimbing/penguji]
+- jenis_sidang [proposal/laporan]
+- tim_mhs [perorangan/kelompok]
+- tanggal
+- nim_mhs_1
+- nama_mhs_1
+- no_tlp_1
+- kepakaran_1
+- nim_mhs_2
+- nama_mhs_2
+- no_tlp_2
+- kepakaran_2
+- judul
+- prodi
+- kaprodi
+- nilai_1
+- nilai_2
+- nilai_3
+- nilai_4
+- status_ba
+- revisi
+- penguji_1
+- penguji_2
+- penguji_3
+
+
+
+
+forms: tab
+- basic info
+   - group 1
+      - nama mahasiswa 1
+      - nim mahasiswa 1
+      - no telepon 1
+   - group 2                  [timMhs = 2]
+      - nama mahasiswa 2
+      - nim mahasiswa 2
+      - no telepon 2
+   - judul
+   - tanggal
+   - program studi
+   - kaprodi
+   - penguji 1
+   - penguji 2 [jenis=laporan]
+   - penguji 3 [jenis=laporan], [timMhs=2]
+
+
+- nilai proposal [jenis=proposal]
+- nilai laporan 1 [jenis=laporan]
+- nilai laporan 2 [jenis=laporan], [timMhs=2]
+- revisi
+- berita acara
+
+show-proposal
+show-laporan
