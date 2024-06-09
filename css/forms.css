@@ -20,6 +20,10 @@
 .btn-group-custom > label:last-of-type {
   border-radius: 0 0.25rem 0.25rem 0;
 }
+h3 > small {
+  font-size: 0.8em;
+  font-weight: normal;
+}
 @media (max-width: 768px) {
   .nav-side {
     position: absolute;

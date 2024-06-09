@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (confirm('Bersihkan data sidang pada browser ini?')) {
       localStorage.clear();
       // go to index.html
-      location.href = 'index.html';
+      location.href = '/';
     }
   });
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // update local storage 'config'
       localStorage.setItem('config', JSON.stringify(config));
       // go to index.html
-      location.href = 'index.html';
+      location.href = '/';
     }
   });
 
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // update local storage 'config'
       localStorage.setItem('config', JSON.stringify(config));
       // go to index.html
-      location.href = 'index.html';
+      location.href = '/';
     });
   })
 
