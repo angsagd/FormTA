@@ -143,9 +143,11 @@ function storeData(sidang) {
   sidang.infoNamaMhs1 = document.getElementById('infoNamaMhs1').value;
   sidang.infoNIMMhs1 = document.getElementById('infoNIMMhs1').value;
   sidang.infoTelp1 = document.getElementById('infoTelp1').value;
+  sidang.infoKepakaran1 = document.getElementById('infoKepakaran1').value;
   sidang.infoNamaMhs2 = document.getElementById('infoNamaMhs2').value;
   sidang.infoNIMMhs2 = document.getElementById('infoNIMMhs2').value;
   sidang.infoTelp2 = document.getElementById('infoTelp2').value;
+  sidang.infoKepakaran2 = document.getElementById('infoKepakaran2').value;
   sidang.infoJudul = document.getElementById('infoJudul').value;
   sidang.infoProdi = document.getElementById('infoProdi').value;
   sidang.infoKaprodi = document.getElementById('infoKaprodi').value;
@@ -222,9 +224,11 @@ function setInitValues(sidang) {
   if(sidang.infoNamaMhs1) document.getElementById('infoNamaMhs1').value = sidang.infoNamaMhs1;
   if(sidang.infoNIMMhs1) document.getElementById('infoNIMMhs1').value = sidang.infoNIMMhs1;
   if(sidang.infoTelp1) document.getElementById('infoTelp1').value = sidang.infoTelp1;
+  if(sidang.infoKepakaran1) document.getElementById('infoTelp1').value = sidang.infoKepakaran1;
   if(sidang.infoNamaMhs2) document.getElementById('infoNamaMhs2').value = sidang.infoNamaMhs2;
   if(sidang.infoNIMMhs2) document.getElementById('infoNIMMhs2').value = sidang.infoNIMMhs2;
   if(sidang.infoTelp2) document.getElementById('infoTelp2').value = sidang.infoTelp2;
+  if(sidang.infoKepakaran2) document.getElementById('infoTelp1').value = sidang.infoKepakaran2;
   if(sidang.infoJudul) document.getElementById('infoJudul').value = sidang.infoJudul;
   if(sidang.infoProdi) document.querySelector('#infoProdi option[value="'+sidang.infoProdi+'"]').selected = true;
   if(sidang.infoKaprodi) document.getElementById('infoKaprodi').value = sidang.infoKaprodi;
