@@ -27,6 +27,23 @@ let nilaiHuruf = [
   {max: 100, huruf: 'A'},
 ];
 
+let dataFont = [
+  {text: "BioRhyme", value: "fn-biorhyme", selected: false}, 
+  {text: "Caveat", value: "fn-caveat", selected: false}, 
+  {text: "Exo", value: "fn-exo", selected: false}, 
+  {text: "Glegoo", value: "fn-glegoo", selected: false}, 
+  {text: "Gloria Hallelujah", value: "fn-gloria", selected: true}, 
+  {text: "Laila", value: "fn-laila", selected: false}, 
+  {text: "Lekton", value: "fn-lekton", selected: false}, 
+  {text: "Marcellus", value: "fn-marcellus", selected: false}, 
+  {text: "Mulish", value: "fn-mulish", selected: false}, 
+  {text: "Mynerve", value: "fn-mynerve", selected: false}, 
+  {text: "Nunito", value: "fn-nunito", selected: false}, 
+  {text: "Poppins", value: "fn-poppins", selected: false}, 
+  {text: "Raleway", value: "fn-raleway", selected: false}, 
+  {text: "Schoolbell", value: "fn-schoolbell", selected: false}, 
+];
+
 // if local storage 'config' doesn't exist
 if (!localStorage.getItem('config')) {
   // clear local storage 'sidangs'
