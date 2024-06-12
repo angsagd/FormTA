@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('infoProdi').appendChild(option);
   });
   
+  // set infoFont options
+  dataFont.forEach(function(font) {
+    let option = document.createElement('option');
+    option.value = font.value;
+    option.text = font.text;
+    option.selected = font.selected; // set default selected font
+    document.getElementById('infoFont').appendChild(option);
+  });
+
   // set tanggal to now
   document.getElementById('infoTanggal').valueAsDate = new Date();
 
@@ -61,6 +70,16 @@ document.addEventListener('DOMContentLoaded', function() {
       return prodi.nama == document.getElementById('infoProdi').value;
     });
     document.getElementById('infoKaprodi').value = prodi.kaprodi;
+  });
+
+  // even listener select infoFont remove class sidang.infoFont dan add class on pangramText
+  document.getElementById('infoFont').addEventListener('change', function() {
+    let newFont = document.getElementById('infoFont').value;
+    document.getElementById('pangramText').classList.remove(sidangs[config.active].infoFont);
+    document.getElementById('pangramText').classList.add(newFont);
+    // update local storage set font value to sidang.infoFont
+    sidangs[config.active].infoFont = newFont;
+    localStorage.setItem('sidangs', JSON.stringify(sidangs));
   });
   
   // add event listener click to "nav nav-link"
@@ -211,6 +230,9 @@ function storeData(sidang) {
   sidang.nilaiHuruf2 = document.getElementById('nilaiHuruf2').value;
   sidang.statusLap = document.querySelector('input[name="statusLap"]:checked').value;
 
+  // save font value
+  sidang.infoFont = document.getElementById('infoFont').value;
+
   // update current active sidang
   sidangs[config.active] = sidang;
   
@@ -291,4 +313,8 @@ function setInitValues(sidang) {
   if(sidang.nilaiTotalSidang2) document.getElementById('nilaiTotalSidang2').value = sidang.nilaiTotalSidang2;
   if(sidang.nilaiHuruf2) document.getElementById('nilaiHuruf2').value = sidang.nilaiHuruf2;
   if(sidang.statusLap) document.querySelector('input[name="statusLap"][value="'+sidang.statusLap+'"]').checked = true;
+
+  // get font value (select option value) with querySelector and set selected
+  if(sidang.infoFont) document.querySelector('#infoFont option[value="'+sidang.infoFont+'"]').selected = true;
+  document.getElementById('pangramText').classList.add(sidang.infoFont);
 }
