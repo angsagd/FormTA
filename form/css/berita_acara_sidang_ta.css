@@ -457,3 +457,72 @@
 .xf{left:557.893333pt;}
 .x21{left:624.613333pt;}
 }
+
+/* Layout */
+.info-col {
+  display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width:740px;
+}
+.info-waktu {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 3px;
+  border-bottom: 1px dashed #000;
+}
+#dtHari {
+  width: 330px;
+}
+#dtTanggal {
+  width: 190px;
+}
+#dtBulan {
+  width: 450px;
+}
+#dtTahun {
+  width: 230px;
+}
+#infoJudul {
+  display: inline-block;
+  width: 1500px;
+  text-wrap: wrap;
+  vertical-align: top;
+  line-height: 1.62;
+  margin-top: -10px;
+}
+.nama-dosen {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 5px;
+  font-size: 9pt;
+}
+
+@media print {
+  .info-col {
+    width: 1320px;
+  }
+  #dtHari {
+    width: 590px;
+  }
+  #dtTanggal {
+    width: 340px;
+  }
+  #dtBulan {
+    width: 800px;
+  }
+  #dtTahun {
+    width: 420px;
+  }
+  #infoJudul {
+    width: 2700px;
+  }
+  .nama-dosen {
+    font-size: 16pt;
+    padding: 0 10px;
+  }
+}
