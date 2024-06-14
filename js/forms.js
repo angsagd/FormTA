@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     option.text = font.text;
     option.selected = font.selected; // set default selected font
     document.getElementById('infoFont').appendChild(option);
+    if(font.selected) document.getElementById('pangramText').classList.add(font.value);
   });
 
   // set tanggal to now
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (let i = 1; i <= 4; i++) {
         total += parseFloat(document.getElementById('timbangLap'+part+i).value);
       }
-      document.getElementById('total'+part).value = total;
+      document.getElementById('total'+part).value = total.toFixed(2);
     });
   });
 
@@ -315,6 +316,8 @@ function setInitValues(sidang) {
   if(sidang.statusLap) document.querySelector('input[name="statusLap"][value="'+sidang.statusLap+'"]').checked = true;
 
   // get font value (select option value) with querySelector and set selected
-  if(sidang.infoFont) document.querySelector('#infoFont option[value="'+sidang.infoFont+'"]').selected = true;
-  document.getElementById('pangramText').classList.add(sidang.infoFont);
+  if(sidang.infoFont) {
+    document.querySelector('#infoFont option[value="'+sidang.infoFont+'"]').selected = true;
+    document.getElementById('pangramText').classList.add(sidang.infoFont);
+  }
 }

@@ -497,3 +497,32 @@
 .x24{left:596.453333pt;}
 .x27{left:659.493333pt;}
 }
+
+/* Layout */
+#infoJudul {
+  display: inline-block;
+  width: 1500px;
+  text-wrap: wrap;
+  vertical-align: top;
+  line-height: 1.62;
+  margin-top: -10px;
+}
+.nama-dosen {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 5px;
+  font-size: 9pt;
+}
+
+@media print {
+  #infoJudul {
+    width: 2700px;
+  }
+  .nama-dosen {
+    font-size: 16pt;
+    padding: 0 10px;
+  }
+}
